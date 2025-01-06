@@ -1,0 +1,105 @@
+{
+    "users": [
+        "Juan Pérez",
+        "Ana Gómez",
+        "Alicia Martínez",
+        "Miguel Rodríguez",
+        "Emilia García",
+        "Daniel López",
+        "Sofía Torres",
+        "Mateo Fernández",
+        "Olivia Morales",
+        "Jaime Blanco",
+        "Carlos Ramírez",
+        "Lucia Sánchez",
+        "Fernando Díaz",
+        "Isabel Ortega",
+        "Hugo Castillo",
+        "Paula Herrera",
+        "Gabriel Ruiz",
+        "Marta Delgado",
+        "Diego Vargas",
+        "Maria Alonso",
+        "Ricardo Suárez",
+        "Laura Méndez",
+        "Jorge Castañeda",
+        "Valeria Campos",
+        "Andres Muñoz"
+    ],
+    "facilityResources": [
+        "Silla de Corte de Cabello",
+        "Silla de Recorte de Barba",
+        "Estación de Lavado y Secado",
+        "Estación de Tratamientos Capilares",
+        "Estación de Estilismo para Eventos"
+    ],
+    "staffResources": [
+        "Estilista A",
+        "Estilista B",
+        "Barbero 1",
+        "Barbero 2",
+        "Peluquero Senior"
+    ],
+    "services": [
+        {
+            "name": "Corte de Cabello",
+            "duration": "00:30:00",
+            "price": 50.0,
+            "description": "Corte de cabello profesional adaptado a tu estilo."
+        },
+        {
+            "name": "Recorte de Barba",
+            "duration": "00:20:00",
+            "price": 30.0,
+            "description": "Recorte de barba preciso para un look definido."
+        },
+        {
+            "name": "Lavado y Secado",
+            "duration": "00:40:00",
+            "price": 45.0,
+            "description": "Lavado relajante seguido de un secado profesional."
+        },
+        {
+            "name": "Coloración de Cabello",
+            "duration": "01:30:00",
+            "price": 120.0,
+            "description": "Coloración personalizada para realzar tu estilo."
+        },
+        {
+            "name": "Permanente",
+            "duration": "02:00:00",
+            "price": 150.0,
+            "description": "Obtén los rizos perfectos con nuestro servicio de permanente."
+        },
+        {
+            "name": "Alisado de Cabello",
+            "duration": "01:45:00",
+            "price": 100.0,
+            "description": "Cabello liso y sedoso con nuestro tratamiento profesional."
+        },
+        {
+            "name": "Tratamiento de Keratina",
+            "duration": "02:00:00",
+            "price": 180.0,
+            "description": "Suaviza y fortalece tu cabello con keratina."
+        },
+        {
+            "name": "Tratamiento Capilar",
+            "duration": "00:45:00",
+            "price": 60.0,
+            "description": "Cuidado profundo y revitalizante para tu cuero cabelludo."
+        },
+        {
+            "name": "Corte y Recorte de Barba",
+            "duration": "01:00:00",
+            "price": 80.0,
+            "description": "Arreglo completo con corte de cabello y recorte de barba."
+        },
+        {
+            "name": "Estilismo para Eventos Especiales",
+            "duration": "01:30:00",
+            "price": 200.0,
+            "description": "Estilismo perfecto para bodas y eventos especiales."
+        }
+    ]
+}

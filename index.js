@@ -26,7 +26,7 @@ async function seedDatabase() {
     const connection = await mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'SUPER_SECURE_PASSWORD',
+        password: '12345',
         database: 'bookify',
     });
 
@@ -34,6 +34,26 @@ async function seedDatabase() {
 
     try {
         console.log("Iniciando inserción de datos...");
+
+
+        // Insertar Permisos y Acciones
+        for (const permission of data.permissions) {
+            const permissionId = randomUUID();
+
+            // Insertar permiso en la tabla permission
+            await connection.query(
+                'INSERT INTO permission (id, name) VALUES (?, ?)',
+                [permissionId, permission.name]
+            );
+
+            // Insertar acciones asociadas en la tabla permission_action
+            for (const action of permission.actions) {
+                await connection.query(
+                    'INSERT INTO permission_action (permission_id, action) VALUES (?, ?)',
+                    [permissionId, action]
+                );
+            }
+        }
 
         // Insertar Roles
         const roles = [
@@ -65,9 +85,9 @@ async function seedDatabase() {
 
         // INSERTAR ADMIN
         await connection.query(
-            `INSERT INTO user (id, email, password, is_verified, tfa_enabled, full_name, birthdate, nit, phone_number, cui, role_id)
+            `INSERT INTO user (id, email, password, is_verified, tfa_enabled, full_name, birthdate, nit, phone_number, cui, image_url, role_id)
             VALUES
-                (UUID(), 'admin@example.com', '$2a$10$gWcWNhkUPBl1I72foujmguikqnbQxOTXD2.fBvgPGUloOQz4Plnv.', true, false, 'Admin User', '1980-01-01', '45678901', '45678901', '4567890123456', ?)`,
+                (UUID(), 'admin@example.com', '$2a$10$gWcWNhkUPBl1I72foujmguikqnbQxOTXD2.fBvgPGUloOQz4Plnv.', true, false, 'Admin User', '1980-01-01', '45678901', '45678901', '4567890123456', 'https://picsum.photos/seed/admin/500', ?)`,
             [roles.find(role => role.name === 'ADMIN').id]
         );
 
@@ -79,8 +99,11 @@ async function seedDatabase() {
             const isStaff = i < 5; // Los primeros 5 serán STAFF
             const role = roles.find(role => role.name === (isStaff ? 'STAFF' : 'CLIENT')).id;
 
+            // Generar URL de imagen usando el número de iteración como seed
+            const imageUrl = `https://picsum.photos/seed/user${i}/500`;
+
             await connection.query(
-                'INSERT INTO user (id, email, password, is_verified, tfa_enabled, full_name, birthdate, nit, phone_number, cui, role_id) VALUES (?, ?, ?, true, false, ?, ?, ?, ?, ?, ?)',
+                'INSERT INTO user (id, email, password, is_verified, tfa_enabled, full_name, birthdate, nit, phone_number, cui, role_id, image_url) VALUES (?, ?, ?, true, false, ?, ?, ?, ?, ?, ?, ?)',
                 [
                     id,
                     `${data.users[i].split(' ')[0].toLowerCase()}@example.com`,
@@ -91,6 +114,7 @@ async function seedDatabase() {
                     getRandomNumber(8),
                     getRandomNumber(13),
                     role,
+                    imageUrl
                 ]
             );
 
@@ -140,7 +164,7 @@ async function seedDatabase() {
 
         const statuses = ['RESERVED', 'CANCELLED', 'CONFIRMED', 'COMPLETED'];
 
-        for (let i = 0; i < 300; i++) {
+        for (let i = 0; i < 400; i++) {
             const customer = clientUsers_SQL[Math.floor(Math.random() * clientUsers_SQL.length)];
             const resource = resources[Math.floor(Math.random() * resources.length)];
             const service = services[Math.floor(Math.random() * services.length)];

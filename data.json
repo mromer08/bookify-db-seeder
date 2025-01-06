@@ -101,5 +101,39 @@
             "price": 200.0,
             "description": "Estilismo perfecto para bodas y eventos especiales."
         }
+    ],
+    "permissions": [
+        {
+            "name": "Reportes",
+            "actions": ["READ"]
+        },
+        {
+            "name": "Servicios",
+            "actions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        },
+        {
+            "name": "Dias laborales",
+            "actions": ["READ", "UPDATE"]
+        },
+        {
+            "name": "Recursos",
+            "actions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        },
+        {
+            "name": "Reservaciones (estado)",
+            "actions": ["READ", "UPDATE"]
+        },
+        {
+            "name": "Configuracion de la empresa",
+            "actions": ["READ", "UPDATE"]
+        },
+        {
+            "name": "Usuarios (asistentes)",
+            "actions": ["CREATE", "READ", "UPDATE"]
+        },
+        {
+            "name": "Roles",
+            "actions": ["CREATE", "READ", "UPDATE"]
+        }
     ]
 }

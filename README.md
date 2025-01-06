@@ -17,7 +17,7 @@ This project is designed to populate the Bookify database with sample data from 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mromer08/bookify-db-seeder.git
    cd bookify-db-seeder
    ```
 
